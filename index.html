@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force Painting Solutions - Transforming Spaces with Color</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C3E50',
+                        secondary: '#E74C3C',
+                        accent: '#3498DB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cookie-consent {
+            transition: all 0.3s ease;
+            transform: translateY(100%);
+        }
+        
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent fixed bottom-0 left-0 right-0 bg-primary text-white p-4 shadow-lg z-50">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0 md:mr-4">
+                <h3 class="text-lg font-bold mb-2">This website uses cookies</h3>
+                <p class="text-sm">We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.</p>
+            </div>
+            <div class="flex space-x-2">
+                <button id="declineCookies" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md transition">Decline</button>
+                <button id="acceptCookies" class="px-4 py-2 bg-secondary hover:bg-red-700 rounded-md transition">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-paint-roller text-2xl text-accent"></i>
+                <a href="#" class="text-xl font-bold">Force Painting Solutions</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="https://forcepaintingsolutions.co.uk" class="hover:text-accent transition">Home</a>
+                <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="hover:text-accent transition">Services</a>
+                <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="hover:text-accent transition">Gallery</a>
+                <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="hover:text-accent transition">About</a>
+                <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="hover:text-accent transition">Contact</a>
+            </div>
+            <button class="md:hidden text-xl" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-primary-dark px-4 py-2">
+            <a href="https://forcepaintingsolutions.co.uk" class="block py-2 hover:text-accent transition">Home</a>
+            <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="block py-2 hover:text-accent transition">Services</a>
+            <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="block py-2 hover:text-accent transition">Gallery</a>
+            <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="block py-2 hover:text-accent transition">About</a>
+            <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="block py-2 hover:text-accent transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Transforming Spaces with Color</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Professional painting solutions for residential and commercial properties across the UK</p>
+            <a href="#contact" class="inline-block bg-secondary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md transition transform hover:scale-105">
+                Get a Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Residential Painting</h3>
+                    <p class="text-gray-600">Transform your home with our expert interior and exterior painting services tailored to your style.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Commercial Painting</h3>
+                    <p class="text-gray-600">Professional painting solutions for businesses, offices, and commercial properties.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Specialty Finishes</h3>
+                    <p class="text-gray-600">Unique decorative finishes including faux painting, murals, and textured coatings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">Our Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe src="https://www.instagram.com/p/DLkefQwNfVl/embed" frameborder="0" scrolling="no" allowtransparency="true" class="w-full h-96"></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe src="https://www.instagram.com/p/DLkgtNDtknU/embed" frameborder="0" scrolling="no" allowtransparency="true" class="w-full h-96"></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe src="https://www.instagram.com/p/DLkf5g_tbm4/embed" frameborder="0" scrolling="no" allowtransparency="true" class="w-full h-96"></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe src="https://www.instagram.com/p/DLkQwAJNs8R/embed" frameborder="0" scrolling="no" allowtransparency="true" class="w-full h-96"></iframe>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="inline-block bg-accent hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md transition transform hover:scale-105">
+                    View More on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Force Painting Solutions transformed our entire house. Their attention to detail and professionalism was outstanding. Highly recommend!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                        <div>
+                            <h4 class="font-bold text-primary">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Homeowner, London</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"We hired Force Painting for our office renovation. They completed the job on time, within budget, and with minimal disruption to our business."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                        <div>
+                            <h4 class="font-bold text-primary">Michael Thompson</h4>
+                            <p class="text-sm text-gray-500">Business Owner, Manchester</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <style>
+        .instagram-cta {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+            color: white;
+        }
+    </style>
+    <section id="contact" class="py-16 bg-white">
+        <div class="instagram-cta text-center py-8 mb-8">
+            <h3 class="text-2xl font-bold mb-4">Follow us on Instagram for the latest projects!</h3>
+            <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="inline-block bg-white text-accent font-bold py-2 px-6 rounded-md transition transform hover:scale-105">
+                @forcepaintingsolutions
+            </a>
+        </div>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12 text-primary">Contact Us!</h2>
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md space-y-6">
+                <div class="text-xl">
+                    <p class="font-bold mb-2">Call Us:</p>
+                    <a href="tel:+447877744555" class="text-accent hover:underline">+44 7877 744555</a>
+                </div>
+                <div class="text-xl">
+                    <p class="font-bold mb-2">Email Us:</p>
+                    <a href="mailto:ion@forcepaintingsolutions.co.uk" class="text-accent hover:underline">ion@forcepaintingsolutions.co.uk</a>
+                </div>
+                <div class="text-xl">
+                    <p class="font-bold mb-2">DM Us:</p>
+                    <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="text-accent hover:underline">instagram.com/forcepaintingsolutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-paint-roller text-2xl text-accent"></i>
+                        <span class="text-xl font-bold">Force Painting Solutions</span>
+                    </div>
+                    <p class="text-gray-300">Transforming spaces with color since 2022</p>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://www.instagram.com/forcepaintingsolutions/" target="_blank" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-300 mb-2">© 2025 Force Painting Solutions</p>
+                    <p class="text-gray-300">All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cookie consent
+        const cookieConsent = document.getElementById('cookieConsent');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+        
+        // Check if cookie consent was already given
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                cookieConsent.classList.add('show');
+            }, 1000);
+        }
+        
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieConsent.classList.remove('show');
+        });
+        
+        declineCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieConsent.classList.remove('show');
+        });
+
+    </script>
+</body>
+</html>
